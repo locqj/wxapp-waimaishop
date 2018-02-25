@@ -1,13 +1,14 @@
 <view class="main">
     <view class="goods-box">
         <image src="{{goods.image}}" class="goods-thumb"></image>
-        
-        <navigator open-type="switchTab" url="../cart/cart">
+        <!--购物车  -->
+         <navigator open-type="switchTab" url="../cart/cart">
             <view class="carts-icon {{scaleCart?'on':''}}">
                 <image src="/image/cart2.png"></image>
                 <text class="carts-icon-num" wx:if="{{hasCarts}}">{{totalNum}}</text>
             </view>
-        </navigator>
+        </navigator> 
+        <!--购物车  -->
         
         <view class="goods-operation">
             <text class="goods-operation-num">数量  {{num}}</text>

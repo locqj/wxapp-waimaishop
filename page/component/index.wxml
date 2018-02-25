@@ -1,97 +1,43 @@
+<import src="../common/shop.wxml" />
 <view class="main">
-    <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
-        <block wx:for="{{imgUrls}}" wx:key="{{index}}">
-            <swiper-item>
-                <image src="{{item}}" class="slide-image" width="100%"/>
-            </swiper-item>
-        </block>
-    </swiper>
-    <view class="selected">
-        <view class="select-title"><text>精选主题</text></view>
-        <view class="select-top">
-            <view class="select-top-small">
-                <navigator url="list/list">
-                    <image src="/image/s1.png"></image>
-                </navigator>
-            </view>
-            <view class="select-top-small">
-                <navigator url="list/list">
-                    <image src="/image/s2.png"></image>
-                </navigator>
-            </view>
-        </view>
-        <view class="select-bottom">
-            <navigator url="list/list">
-                <image src="/image/s3.png"></image>
-            </navigator>
-        </view>
+<!--轮播  -->
+  <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
+    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" width="100%" />
+      </swiper-item>
+    </block>
+  </swiper>
+<!--轮播  -->
+  <!--分类菜单  -->
+  <view class="category">
+    <navigator class="category__item" url="/pages/index/category?id={{item.category_id}}" wx:for="{{category}}" wx:key="category_id">
+      <view>
+        <image src="{{item.icon}}" class="category__icon"></image>
+      </view>
+      {{item.title}}
+    </navigator>
+  </view>
+  <!--分类菜单  -->
+  <!--商铺  -->
+  <view class="shop-title">
+    <image src="../../image/icon/recommend.png"></image>
+    猜你喜欢
+  </view>
+
+  <view class="shop" wx:for="{{business}}" wx:key="item" bindtap='redTo' data-shop="{{item.id}}">
+    <view class="shop-image">
+      <image src="{{item.shopimg}}" ></image>
     </view>
-    <view class="newest">
-        <view class="newest-title"><text>最近新品</text></view>
-        <view class="newest-box">
-            <view class="newest-list">
-                <navigator url="details/details">
-                    <image src="/image/s4.png"></image>
-                    <view class="newest-text"><text>瓜子 100g</text></view>
-                    <view class="newest-text"><text>￥ 0.01</text></view>
-                </navigator>
-            </view>
-            <view class="newest-list">
-                <navigator url="details/details">
-                    <image src="/image/s5.png"></image>
-                    <view class="newest-text"><text>芹菜 半斤</text></view>
-                    <view class="newest-text"><text>￥ 0.02</text></view>
-                </navigator>
-            </view>
-            <view class="newest-list">
-                <navigator url="details/details">
-                    <image src="/image/s6.png"></image>
-                    <view class="newest-text"><text>素米 375g</text></view>
-                    <view class="newest-text"><text>￥ 0.03</text></view>
-                </navigator>
-            </view>
-            <view class="newest-list">
-                <navigator url="details/details">
-                    <image src="/image/s4.png"></image>
-                    <view class="newest-text"><text>瓜子 100g</text></view>
-                    <view class="newest-text"><text>￥ 0.01</text></view>
-                </navigator>
-            </view>
-            <view class="newest-list">
-                <navigator url="details/details">
-                    <image src="/image/s5.png"></image>
-                    <view class="newest-text"><text>芹菜 半斤</text></view>
-                    <view class="newest-text"><text>￥ 0.02</text></view>
-                </navigator>
-            </view>
-            <view class="newest-list">
-                <navigator url="details/details">
-                    <image src="/image/s6.png"></image>
-                    <view class="newest-text"><text>素米 375g</text></view>
-                    <view class="newest-text"><text>￥ 0.03</text></view>
-                </navigator>
-            </view>
-            <view class="newest-list">
-                <navigator url="details/details">
-                    <image src="/image/s4.png"></image>
-                    <view class="newest-text"><text>瓜子 100g</text></view>
-                    <view class="newest-text"><text>￥ 0.01</text></view>
-                </navigator>
-            </view>
-            <view class="newest-list">
-                <navigator url="details/details">
-                    <image src="/image/s5.png"></image>
-                    <view class="newest-text"><text>芹菜 半斤</text></view>
-                    <view class="newest-text"><text>￥ 0.02</text></view>
-                </navigator>
-            </view>
-            <view class="newest-list">
-                <navigator url="details/details">
-                    <image src="/image/s6.png"></image>
-                    <view class="newest-text"><text>素米 375g</text></view>
-                    <view class="newest-text"><text>￥ 0.03</text></view>
-                </navigator>
-            </view>
-        </view>
+    <view class="right">
+      <view class='title'>{{item.title}}</view>
+      <view class='sell-count'>月销{{item.sellcount}}笔</view>
+      <view class='detail'>起送¥{{item.startsell}}|配送¥{{item.packagesell}}<span class="space"></span>     {{item.pmin}}分钟|{{item.dist}}米</view>
+      <view class='icon'>
+        <image wx:for="{{item.shopicon}}" wx:key="item" src="{{item}}"></image>
+      </view>  
     </view>
+  </view>
+
+  <!--商铺  -->
 </view>

@@ -10,14 +10,19 @@ Page({
     }
   },
   onShow() {
-    this.setData({
-      hasList: true,
-      carts:[
-        {id:1,title:'新鲜芹菜 半斤',image:'/image/s5.png',num:4,price:0.01,selected:true},
-        {id:2,title:'素米 500g',image:'/image/s6.png',num:1,price:0.03,selected:true}
-      ]
-    });
-    this.getTotalPrice();
+    console.log('cart_onshow')
+    let _this = this
+    wx.getStorage({
+      key: 'card',
+      success: function (res) {
+        _this.setData({
+          hasList: true,
+          carts: res.data
+        })
+        _this.getTotalPrice();
+      },
+    })
+    
   },
   /**
    * 当前商品选中事件

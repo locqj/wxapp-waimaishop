@@ -1,3 +1,4 @@
+@import './weui.wxss';
 page {
   background-color: #fbf9fe;
   height: 100%;

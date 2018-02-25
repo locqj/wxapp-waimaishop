@@ -11,7 +11,7 @@
   ],
   "window": {
     "navigationBarTextStyle": "#ffffff",
-    "navigationBarTitleText": "零食商贩",
+    "navigationBarTitleText": "外卖栈",
     "navigationBarBackgroundColor": "#AB956D",
     "backgroundColor": "#eeeeee",
     "enablePullDownRefresh": true
@@ -26,11 +26,6 @@
       "iconPath": "image/12.png",
       "selectedIconPath": "image/11.png",
       "text": "主页"
-    }, {
-      "pagePath": "page/component/category/category",
-      "iconPath": "image/22.png",
-      "selectedIconPath": "image/21.png",
-      "text": "分类"
     }, {
       "pagePath": "page/component/cart/cart",
       "iconPath": "image/32.png",
